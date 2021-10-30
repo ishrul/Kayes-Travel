@@ -1,0 +1,15 @@
+.navbar a {
+  text-decoration: none;
+}
+.navbar li:hover {
+  border-bottom: 2px solid #6f42c1;
+}
+
+@media only screen and (min-width: 1312px) {
+  .navigation {
+    margin-left: 35%;
+  }
+  .navbar li {
+    margin-left: 10px;
+  }
+}
