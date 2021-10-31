@@ -41,9 +41,7 @@ const OurGallery = () => {
               height="400"
             />
           </a>
-          <div className="desc">
-            5th April, 2021. The Best Trip in the Dubai.
-          </div>
+          <div className="desc">5th April, 2021. The Best Trip in Dubai.</div>
         </div>
       </div>
 

@@ -7,7 +7,7 @@ function PrivateRoute({ children, ...rest }) {
 
   if (isLoading) {
     return (
-      <div className=" mt-5">
+      <div className=" m-top ">
         <Spinner animation="grow" variant="danger" />
         <Spinner animation="grow" variant="warning" />
         <Spinner animation="grow" variant="info" />

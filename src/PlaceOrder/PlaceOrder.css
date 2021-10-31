@@ -1,0 +1,10 @@
+.place-order input {
+  width: 40%;
+  padding-left: 10px;
+  border-radius: 40px;
+}
+@media only screen and (max-width: 600px) {
+  .place-order input {
+    width: 60%;
+  }
+}

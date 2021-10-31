@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Service.css";
 
 const Service = ({ service }) => {
-  const { name, img, description } = service;
+  const { name, img, description, _id } = service;
   return (
     <div className="service">
       <div className="container page-wrapper cols">
@@ -22,7 +22,7 @@ const Service = ({ service }) => {
                 </div>
               </div>
 
-              <Link to="/placeOrder">
+              <Link to={`/services/${_id}`}>
                 <div className="box-down">
                   <div className="h-bg">
                     <div className="h-bg-inner"></div>
