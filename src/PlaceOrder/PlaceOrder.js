@@ -26,6 +26,7 @@ const PlaceOrder = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.serviceName = service.name;
+    data.status = "Panding";
     console.log(data);
     axios
       .post("https://pacific-bayou-55573.herokuapp.com/orders", data)

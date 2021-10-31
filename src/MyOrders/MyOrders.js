@@ -50,14 +50,14 @@ const MyOrders = () => {
                   <p className="card-text">{order.email}</p>
                   <p className="card-text">Address: {order.address}</p>
                 </div>
+                <p>
+                  Status: <span className="text-info">{order.status}...</span>
+                </p>
                 <button
                   onClick={() => handleDeleteAnUser(order._id)}
                   className="btn-info text-light m-2 rounded-3"
                 >
                   Delete
-                </button>
-                <button className="btn-info text-light m-2 rounded-3">
-                  Place
                 </button>
               </div>
             </div>
