@@ -6,7 +6,7 @@ const OurGallery = () => {
     <div className="my-5">
       <h2 className="text-info">Our Trips Gallery</h2>
 
-      <h4 className="my-3">
+      <h4 className="my-3 text-light">
         We have arranged the best of the trips for our clients through out the
         years and following are some of the memories.
       </h4>
@@ -24,7 +24,7 @@ const OurGallery = () => {
               height="400"
             />
           </a>
-          <div className="desc">Best trip in the cox's bazar.</div>
+          <div className="desc text-light">Best trip in the cox's bazar.</div>
         </div>
       </div>
 
@@ -41,7 +41,9 @@ const OurGallery = () => {
               height="400"
             />
           </a>
-          <div className="desc">5th April, 2021. The Best Trip in Dubai.</div>
+          <div className="desc text-light">
+            5th April, 2021. The Best Trip in Dubai.
+          </div>
         </div>
       </div>
 
@@ -58,7 +60,7 @@ const OurGallery = () => {
               height="400"
             />
           </a>
-          <div className="desc">Awesome trip in Paris!</div>
+          <div className="desc text-light">Awesome trip in Paris!</div>
         </div>
       </div>
 
@@ -75,7 +77,7 @@ const OurGallery = () => {
               height="400"
             />
           </a>
-          <div className="desc">Last Year in the Himalaya!</div>
+          <div className="desc text-light">Last Year in the Himalaya!</div>
         </div>
       </div>
 

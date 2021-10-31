@@ -6,13 +6,15 @@ import "./NewService.css";
 const NewService = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:8000/services", data).then((res) => {
-      console.log(res);
-      if (res.data.insertedId) {
-        alert("Successfully Added");
-        reset();
-      }
-    });
+    axios
+      .post("https://pacific-bayou-55573.herokuapp.com/services", data)
+      .then((res) => {
+        console.log(res);
+        if (res.data.insertedId) {
+          alert("Successfully Added");
+          reset();
+        }
+      });
   };
 
   return (
@@ -25,6 +27,14 @@ const NewService = () => {
         <textarea
           {...register("description")}
           placeholder="Enter Service Description"
+        />
+        <br />
+        <br />
+        <input
+          className="px-2"
+          type="number"
+          {...register("price")}
+          placeholder="Enter Service price"
         />
         <br />
         <br />

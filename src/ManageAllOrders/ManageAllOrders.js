@@ -4,13 +4,33 @@ const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/orders")
+    fetch("https://pacific-bayou-55573.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setOrders(data);
       });
   }, []);
+
+  // DELETE AN USER
+  const handleDeleteAnUser = (id) => {
+    const proceed = window.confirm("Are You Sure, You Want To Delete?");
+    if (proceed) {
+      const url = `https://pacific-bayou-55573.herokuapp.com/orders/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("Successfully Deleted Your Order");
+            const remainingOrders = orders.filter((order) => order._id !== id);
+            setOrders(remainingOrders);
+          }
+        });
+    }
+  };
 
   return (
     <div className="m-top">
@@ -26,8 +46,15 @@ const ManageAllOrders = () => {
                   <p className="card-text">{order.email}</p>
                   <p className="card-text">Address: {order.address}</p>
                 </div>
-                <button>Delete</button>
-                <button>Place</button>
+                <button
+                  className="btn-info text-light rounded-3 m-2"
+                  onClick={() => handleDeleteAnUser(order._id)}
+                >
+                  Delete
+                </button>
+                <button className="btn-info text-light rounded-3 m-2">
+                  Place
+                </button>
               </div>
             </div>
           </div>

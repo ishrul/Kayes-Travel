@@ -19,7 +19,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className=" col s12 m6 offset-m3 center-align">
+    <div className=" col s12 m6 offset-m3 center-align text-light ">
       <a
         onClick={handleGoogleLogIn}
         className="google-div oauth-container btn darken-4 white black-text"

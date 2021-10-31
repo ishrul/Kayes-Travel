@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Service from "../Service/Service";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/services")
+    setIsLoading(true);
+    fetch("https://pacific-bayou-55573.herokuapp.com/services")
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => setServices(data))
+      .catch((error) => console.log(error.message))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
     <div>
       <h2 className="text-info my-5">Our Services</h2>
       <div>
+        {isLoading && <Spinner animation="border" variant="info" />}
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           {services.map((service) => (
             <Service key={service} service={service}></Service>

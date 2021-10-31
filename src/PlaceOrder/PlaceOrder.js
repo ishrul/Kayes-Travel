@@ -4,14 +4,19 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const PlaceOrder = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
   const [service, setService] = useState([]);
   const { user } = useAuth();
   const { serviceId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/services/${serviceId}`)
+    fetch(`https://pacific-bayou-55573.herokuapp.com/services/${serviceId}`)
       .then((res) => res.json())
       .then((data) => {
         setService(data);
@@ -22,23 +27,21 @@ const PlaceOrder = () => {
   const onSubmit = (data) => {
     data.serviceName = service.name;
     console.log(data);
-    axios.post("http://localhost:8000/orders", data).then((res) => {
-      console.log(res);
-      if (res.data.insertedId) {
-        alert("Successfully Order Placed");
-        reset();
-      }
-    });
+    axios
+      .post("https://pacific-bayou-55573.herokuapp.com/orders", data)
+      .then((res) => {
+        console.log(res);
+        if (res.data.insertedId) {
+          alert("Successfully Added To Your orders");
+          reset();
+        }
+      });
   };
-
-  /* const orderedService = services.filter(
-    (service) => service._id === serviceId
-  ); */
 
   return (
     <div className="m-top place-order">
-      <h3>Place Your Order</h3>
-      <h4 className="my-3">Service Name: {service.name}</h4>
+      <h3 className="text-info">Confirm Your Order</h3>
+      <h4 className="my-3 text-light">Service Name: {service.name}</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           defaultValue={user.displayName}
@@ -73,8 +76,11 @@ const PlaceOrder = () => {
         />
         <br />
         <br />
-        <input className="btn-info fw-bold text-white" type="submit" />
+        <input className="btn-info fw-bold text-white my-3" type="submit" />
       </form>
+      <Link className=" fw-bold" to="/myOrders">
+        Want To See All Of Your Orders?
+      </Link>
     </div>
   );
 };
